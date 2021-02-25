@@ -112,9 +112,11 @@ with open(input_file) as f:
             if intersection.get_busiest_street() != '':
                 intersection.green = intersection.get_busiest_street()
                 if intersection.green not in set(intersection.schedule):
-                    intersection.schedule[t] = intersection.green
+                    for s in intersection.schedule[t:]:
+                        s = intersection.green
                     car = intersection.remove_car_from_queue(streets[intersection.green])
-                    car.cross_intersection()          
+                    car.cross_intersection()   
+                           
 
         for car in cars:
             if car.distance_to_go > 0:
