@@ -3,7 +3,6 @@ import heapq
 
 
 # classes
-
 class Pizza:
     def __init__(self, identifier, ingredients):
         self.identifier = identifier
